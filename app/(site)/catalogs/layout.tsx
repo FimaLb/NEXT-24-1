@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -5,9 +7,9 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <div className='flex gap-4 font-bold bg-green-900 text-white p-5'>
+      <main className='flex font-bold bg-green-800 text-white p-10 w-100 h-100'>
         {children}
-      </div>
+      </main>
     </>
   );
 }
