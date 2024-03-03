@@ -1,0 +1,15 @@
+{
+  "server-component": {
+    "welcome": "Willkommen"
+  },
+  "counter": {
+    "increment": "Zuwachs",
+    "decrement": "Dekrementieren"
+  },
+  "pages": {
+    "landing": {
+      "title": "Willkommen",
+      "tooltip": "Zuwachs"
+    }
+  }
+}
