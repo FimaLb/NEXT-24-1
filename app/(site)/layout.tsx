@@ -1,5 +1,12 @@
-import Link from 'next/link'
-
+"use client";
+import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "../../components/ui/navigation-menu";
 
 export default function RootLayout({
   children,
@@ -8,13 +15,38 @@ export default function RootLayout({
 }>) {
   return (
     <>
-        <nav className="flex gap-4 font-bold bg-green-900 text-white p-5">
-            <Link href="/">Home</Link>
-            <Link href="/login">Login</Link>
-            <Link href="/register">Register</Link>
-            <Link href="/blog">Blog</Link>
-        </nav>
-        {children}
+      <NavigationMenu className='flex justify-between'>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href='/'>Home</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href='/blog'>Blog</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href='/products'>Products</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href='/login'>Login</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href='/register'>Register</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      {children}
     </>
   );
 }
