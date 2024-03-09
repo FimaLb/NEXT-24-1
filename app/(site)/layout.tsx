@@ -32,6 +32,11 @@ export default function RootLayout({
               <Link href='/products'>Products</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href='/cakes-catalog'>Cakes Catalog</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         </NavigationMenuList>
         <NavigationMenuList>
           <NavigationMenuItem>

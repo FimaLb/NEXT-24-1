@@ -1,48 +1,84 @@
 {
-  "make": [
+  "cakesCatalog": [
     {
       "id": "1",
-      "alias": "audi",
-      "name": "Audi"
+      "title": "Сhocolate cakes",
+      "alias": "chocolate",
+      "alt": "Сhocolate cakes",
+      "description": "For chocolate lovers",
+      "src": "/categories/chocolate_cakes.jpg"
     },
     {
       "id": "2",
-      "alias": "toyota",
-      "name": "Toyota"
-    }
-  ],
-  "car": [
-    {
-      "id": "1",
-      "name": "Toyota Rav4",
-      "make": "2",
-      "color": "1"
-    },
-    {
-      "id": "2",
-      "name": "Toyota Corolla",
-      "make": "2",
-      "color": "2"
+      "title": "Fruit cakes",
+      "alias": "fruit",
+      "alt": "Fruit cakes",
+      "description": "For fruit lovers",
+      "src": "/categories/fruit_cakes.jpg"
     },
     {
       "id": "3",
-      "name": "Audi Q7",
-      "make": "1"
-    },
-    {
-      "id": "4",
-      "name": "Audi Q5",
-      "make": "1"
+      "title": "Unusual cakes",
+      "alias": "unusual",
+      "alt": "Unusual cakes",
+      "description": "For unusual cakes lovers",
+      "src": "/categories/unusual_cakes.jpg"
     }
   ],
-  "color": [
+  "cakes": [
     {
       "id": "1",
-      "name": "Red"
+      "title": "Cake 1",
+      "alias": "cake_1",
+      "alt": "Cake 1",
+      "description": "Chocolate cake 1",
+      "src": "/categories/chocolate_cakes.jpg",
+      "catalogId": "1"
     },
     {
       "id": "2",
-      "name": "green"
+      "title": "Cake 2",
+      "alias": "cake_2",
+      "alt": "Cake 2",
+      "description": "Chocolate cake 2",
+      "src": "/categories/fruit_cakes.jpg",
+      "catalogId": "2"
+    },
+    {
+      "id": "3",
+      "title": "Cake 3",
+      "alias": "cake_3",
+      "alt": "Cake 3",
+      "description": "Chocolate cake 3",
+      "src": "/categories/unusual_cakes.jpg",
+      "catalogId": "3"
+    },
+    {
+      "id": "4",
+      "title": "Cake 4",
+      "alias": "cake_4",
+      "alt": "Cake 4",
+      "description": "Chocolate cake 4",
+      "src": "/categories/chocolate_cakes.jpg",
+      "catalogId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Cake 5",
+      "alias": "cake_5",
+      "alt": "Cake 5",
+      "description": "Chocolate cake 5",
+      "src": "/categories/fruit_cakes.jpg",
+      "catalogId": "2"
+    },
+    {
+      "id": "6",
+      "title": "Cake 6",
+      "alias": "cake_6",
+      "alt": "Cake 6",
+      "description": "Chocolate cake 6",
+      "src": "/categories/unusual_cakes.jpg",
+      "catalogId": "3"
     }
   ]
 }

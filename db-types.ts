@@ -1,20 +1,21 @@
 export interface Catalog {
-  make?: (MakeEntity)[] | null;
-  car?: (CarEntity)[] | null;
-  color?: (ColorEntity)[] | null;
+  cakesCatalog?: CakesCatalogEntity[] | null;
+  cakes?: CakeEntity[] | null;
 }
-export interface MakeEntity {
+export interface CakesCatalogEntity {
   id: string;
+  title: string;
   alias: string;
-  name: string;
+  alt: string;
+  description: string;
+  src: string;
 }
-export interface CarEntity {
+export interface CakeEntity {
   id: string;
-  name: string;
-  make: string;
-  color?: string | null;
-}
-export interface ColorEntity {
-  id: string;
-  name: string;
+  title: string;
+  alias: string;
+  alt: string;
+  description: string;
+  src: string;
+  catalogId: string;
 }
