@@ -1,0 +1,48 @@
+{
+  "make": [
+    {
+      "id": "1",
+      "alias": "audi",
+      "name": "Audi"
+    },
+    {
+      "id": "2",
+      "alias": "toyota",
+      "name": "Toyota"
+    }
+  ],
+  "car": [
+    {
+      "id": "1",
+      "name": "Toyota Rav4",
+      "make": "2",
+      "color": "1"
+    },
+    {
+      "id": "2",
+      "name": "Toyota Corolla",
+      "make": "2",
+      "color": "2"
+    },
+    {
+      "id": "3",
+      "name": "Audi Q7",
+      "make": "1"
+    },
+    {
+      "id": "4",
+      "name": "Audi Q5",
+      "make": "1"
+    }
+  ],
+  "color": [
+    {
+      "id": "1",
+      "name": "Red"
+    },
+    {
+      "id": "2",
+      "name": "green"
+    }
+  ]
+}
