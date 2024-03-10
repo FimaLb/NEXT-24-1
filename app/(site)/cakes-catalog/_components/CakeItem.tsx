@@ -4,20 +4,21 @@ import TypographyH3 from "@/components/ui/TypographyH3";
 import TypographyH1 from "@/components/ui/TypographyH1";
 import Image from "next/image";
 import TypographyP from "@/components/ui/TypographyP";
-import { CakeEntity } from "@/db-types";
+import { CakesEntity } from "@/db-types";
+import { usePathname } from "next/navigation";
 
 export default async function CakeItem({
   itemData,
 }: {
-  itemData: CakeEntity | null;
+  itemData: CakesEntity | null;
 }) {
-  console.log("itemData", itemData);
   if (!itemData) {
     return null;
   }
+
   return (
     <>
-      {/* <Link href={`/products/${categoryId}`}>
+      {/* <Link href={pathname}>
         <TypographyH3>Back to Product</TypographyH3>
       </Link> */}
       <TypographyH1>{itemData?.title}</TypographyH1>

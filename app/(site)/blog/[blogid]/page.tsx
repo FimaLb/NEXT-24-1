@@ -16,7 +16,7 @@ export default async function BlogDetail(props: {
   if (!blogPost) {
     return NotFound(); // to do 404
   }
-  console.log(params);
+
   return (
     <main className='text-lg font-bold'>
       <h1>BlogDetail {blogPost.title}</h1>

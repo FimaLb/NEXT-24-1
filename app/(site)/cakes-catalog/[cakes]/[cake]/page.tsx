@@ -10,7 +10,6 @@ export default async function CakePage({
 }) {
   const cakeItem = await getCakeByAlias(cake);
 
-  console.log("cakeItem", cakeItem);
   return (
     <PageWrapper>
       <CakeItem itemData={cakeItem} />

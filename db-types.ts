@@ -1,6 +1,8 @@
 export interface Catalog {
-  cakesCatalog?: CakesCatalogEntity[] | null;
-  cakes?: CakeEntity[] | null;
+  cakesCatalog?: (CakesCatalogEntity)[] | null;
+  cakes?: (CakesEntity)[] | null;
+  size?: (SizeEntityOrWheightEntity)[] | null;
+  wheight?: (SizeEntityOrWheightEntity)[] | null;
 }
 export interface CakesCatalogEntity {
   id: string;
@@ -10,7 +12,7 @@ export interface CakesCatalogEntity {
   description: string;
   src: string;
 }
-export interface CakeEntity {
+export interface CakesEntity {
   id: string;
   title: string;
   alias: string;
@@ -18,4 +20,10 @@ export interface CakeEntity {
   description: string;
   src: string;
   catalogId: string;
+  size: string;
+  wheight: string;
+}
+export interface SizeEntityOrWheightEntity {
+  id: string;
+  value: string;
 }

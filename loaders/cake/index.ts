@@ -1,12 +1,17 @@
-import { CakeEntity } from "@/db-types";
+import { CakesEntity } from "@/db-types";
 
 export async function getCakeByAlias(
   alias: string
-): Promise<CakeEntity | null> {
+): Promise<CakesEntity | null> {
+  const params = new URLSearchParams();
+  params.set("alias", alias);
+
   if (!alias) {
     return null;
   }
-  const res = await fetch(`${process.env.API_BASE_PATH}/cakes?alias=${alias}`);
+  const res = await fetch(
+    `${process.env.API_BASE_PATH}/cakes?${params.toString()}`
+  );
   if (!res.ok) {
     return null;
   }
