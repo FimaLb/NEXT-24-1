@@ -12,7 +12,7 @@ import Image from "next/image";
 export default function CakesCatalogList({
   data,
 }: {
-  data: Catalog["cakesCatalog"];
+  data: Catalog["cakesCatalogs"];
 }) {
   if (!data) {
     return null;

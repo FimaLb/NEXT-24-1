@@ -1,5 +1,5 @@
 {
-  "cakesCatalog": [
+  "cakesCatalogs": [
     {
       "id": "1",
       "title": "Сhocolate cakes",
@@ -34,8 +34,8 @@
       "description": "Chocolate cake 1",
       "src": "/categories/chocolate_cakes.jpg",
       "catalogId": "1",
-      "size": "1",
-      "wheight": "1"
+      "sizeId": "1",
+      "wheightId": "1"
     },
     {
       "id": "2",
@@ -45,8 +45,8 @@
       "description": "Chocolate cake 2",
       "src": "/categories/fruit_cakes.jpg",
       "catalogId": "2",
-      "size": "2",
-      "wheight": "2"
+      "sizeId": "2",
+      "wheightId": "2"
     },
     {
       "id": "3",
@@ -56,8 +56,8 @@
       "description": "Chocolate cake 3",
       "src": "/categories/unusual_cakes.jpg",
       "catalogId": "3",
-      "size": "3",
-      "wheight": "3"
+      "sizeId": "3",
+      "wheightId": "3"
     },
     {
       "id": "4",
@@ -67,8 +67,8 @@
       "description": "Chocolate cake 4",
       "src": "/categories/chocolate_cakes.jpg",
       "catalogId": "1",
-      "size": "4",
-      "wheight": "1"
+      "sizeId": "4",
+      "wheightId": "1"
     },
     {
       "id": "5",
@@ -78,8 +78,8 @@
       "description": "Chocolate cake 5",
       "src": "/categories/fruit_cakes.jpg",
       "catalogId": "2",
-      "size": "5",
-      "wheight": "3"
+      "sizeId": "5",
+      "wheightId": "3"
     },
     {
       "id": "6",
@@ -89,11 +89,11 @@
       "description": "Chocolate cake 6",
       "src": "/categories/unusual_cakes.jpg",
       "catalogId": "3",
-      "size": "1",
-      "wheight": "1"
+      "sizeId": "1",
+      "wheightId": "1"
     }
   ],
-  "size": [
+  "sizes": [
     {
       "id": "1",
       "value": "XS"
@@ -115,7 +115,7 @@
       "value": "XL"
     }
   ],
-  "wheight": [
+  "wheights": [
     {
       "id": "1",
       "value": "1 kg"

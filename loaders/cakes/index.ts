@@ -11,10 +11,10 @@ export async function getCakesByCatalogId(
   params.set("catalogId", id);
 
   if (filters?.size) {
-    params.set("size", filters?.size);
+    params.set("sizeId", filters?.size);
   }
   if (filters?.wheight) {
-    params.set("wheight", filters?.wheight);
+    params.set("wheightId", filters?.wheight);
   }
 
   console.log("params", params.toString());
