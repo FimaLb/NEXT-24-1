@@ -9,8 +9,8 @@ export default function CakesFilters({
   size,
   wheight,
 }: {
-  size: Catalog["size"];
-  wheight: Catalog["wheight"];
+  size: Catalog["sizes"];
+  wheight: Catalog["wheights"];
 }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
