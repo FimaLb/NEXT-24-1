@@ -3,6 +3,7 @@ import { Catalog } from "@/db-types";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
 export default function CakesFilters({
   size,
@@ -11,12 +12,19 @@ export default function CakesFilters({
   size: Catalog["size"];
   wheight: Catalog["wheight"];
 }) {
-  console.log("size", size);
-  console.log("wheight", wheight);
   const searchParams = useSearchParams();
-  const currentSize = searchParams.get("sizeId");
-  const currentWheight = searchParams.get("wheightId");
   const pathname = usePathname();
+  const currentSize = searchParams.get("size");
+  const currentWheight = searchParams.get("wheight");
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const param = new URLSearchParams(searchParams.toString());
+      param.set(name, value);
+      return param.toString();
+    },
+    [searchParams]
+  );
 
   return (
     <div className='flex gap-4'>
@@ -34,7 +42,7 @@ export default function CakesFilters({
                       ["bg-green-700"]: currentSize === id,
                     }
                   )}
-                  href={`?size=${id}`}
+                  href={`${pathname}?${createQueryString("size", id)}`}
                 >
                   {value}
                 </Link>
@@ -57,7 +65,7 @@ export default function CakesFilters({
                       ["bg-green-700"]: currentWheight === id,
                     }
                   )}
-                  href={`?wheight=${id}`}
+                  href={`${pathname}?${createQueryString("wheight", id)}`}
                 >
                   {value}
                 </Link>
