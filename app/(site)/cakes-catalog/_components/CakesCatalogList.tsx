@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
-export default function CakesCatalogList({
+export default async function CakesCatalogList({
   data,
 }: {
-  data: Catalog["cakesCatalogs"];
+  data: Catalog["catalogs"];
 }) {
   if (!data) {
     return null;

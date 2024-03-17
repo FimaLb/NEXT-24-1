@@ -10,8 +10,15 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { CakeDeleteButton } from "./CakeDeleteButton";
 
-export default function CakesList({ list }: { list: Catalog["cakes"] }) {
+export default function CakesList({
+  list,
+  catalog,
+}: {
+  list: Catalog["cakes"];
+  catalog: string;
+}) {
   const pathname = usePathname();
 
   if (!list) {
@@ -22,7 +29,12 @@ export default function CakesList({ list }: { list: Catalog["cakes"] }) {
     <div className='flex items-center justify-center gap-4 flex-wrap pt-20'>
       {list.map(({ id, title, alias, description, alt, src }) => (
         <Link key={id} href={`${pathname}/${alias}`}>
-          <Card className='flex flex-col self-stretch h-[480px]'>
+          <Card className='flex flex-col self-stretch h-[480px] relative'>
+            <CakeDeleteButton
+              id={id}
+              catalogAlias={catalog}
+              className='absolute top-0 right-0'
+            />
             <CardHeader>
               <CardTitle>{title}</CardTitle>
               {description ? (
@@ -30,7 +42,12 @@ export default function CakesList({ list }: { list: Catalog["cakes"] }) {
               ) : null}
             </CardHeader>
             <CardContent>
-              <Image src={src} width={236} height={354} alt={alt} />
+              <Image
+                src={src ? src : "/categories/chocolate_cakes.jpg"}
+                width={236}
+                height={354}
+                alt={alt}
+              />
             </CardContent>
           </Card>
         </Link>

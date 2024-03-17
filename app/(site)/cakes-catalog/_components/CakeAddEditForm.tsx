@@ -1,6 +1,10 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { CakesCatalogsEntity, SizesEntityOrWheightsEntity } from "@/db-types";
+import {
+  CatalogsEntity,
+  CakesEntity,
+  SizesEntityOrWheightsEntity,
+} from "@/db-types";
 import { v4 as uuidv4 } from "uuid";
 import { CakeSizeSelector } from "./CakeSizeSelector";
 import { CakeWheightsSelector } from "./CakeWheightsSelector";
@@ -8,14 +12,18 @@ import { CakeCatalogsSelector } from "./CakeCatalogsSelector";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "./SubmitButton";
 import { useFormState } from "react-dom";
-import { AddCakeResult } from "@/actions/addCake";
+import { AddCakeAction } from "@/actions/addCake";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { EditeCakeAction } from "@/actions/editeCake";
 
 interface CakeAddEditFormProps {
-  catalogs?: CakesCatalogsEntity[] | null;
-  sizes?: SizesEntityOrWheightsEntity[] | null;
+  catalogs?: CatalogsEntity[] | null;
+  sizes?: SizesEntityOrWheightsEntity[] | null | undefined;
   wheights?: SizesEntityOrWheightsEntity[] | null;
-  action: (state: AddCakeResult, formData: FormData) => void;
+  action: AddCakeAction | EditeCakeAction;
+  selectedCatalog?: CatalogsEntity;
+  data?: CakesEntity | null;
 }
 
 export const CakeAddEditForm: React.FunctionComponent<CakeAddEditFormProps> = ({
@@ -23,9 +31,19 @@ export const CakeAddEditForm: React.FunctionComponent<CakeAddEditFormProps> = ({
   sizes,
   wheights,
   action,
+  selectedCatalog,
+  data,
 }) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [state, formAction] = useFormState(action as any, {} as AddCakeResult);
+  const [state, formAction] = useFormState(action, {});
+  const router = useRouter();
+  const defaultCatalogValue = data?.catalogId
+    ? data?.catalogId
+    : selectedCatalog?.id;
+  const defaultSizeValue =
+    data?.sizeId || (sizes?.length ? sizes[0].id : undefined);
+  const defaultWheightsValue =
+    data?.wheightId || (wheights?.length ? wheights[0].id : undefined);
 
   useEffect(() => {
     if (state.status) {
@@ -45,25 +63,40 @@ export const CakeAddEditForm: React.FunctionComponent<CakeAddEditFormProps> = ({
       {state.status === false ? (
         <div className='p-4 bg-red-600 text-white'>{state.message}</div>
       ) : null}
-      <input type='hidden' value={uuidv4()} name='id' />
+      <input type='hidden' value={data?.id || uuidv4()} name='id' />
+      <input type='hidden' value={selectedCatalog?.alias} name='catalogAlias' />
       <div className='flex flex-col gap-2'>
         <label htmlFor='name'>Name:</label>
-        <Input id='name' name='name' required />
+        <Input value={data?.title} id='name' name='name' required />
       </div>
       <div className='flex flex-col gap-2'>
-        <label htmlFor='size'>Wheight:</label>
-        <CakeCatalogsSelector data={catalogs} />
+        <label htmlFor='size'>Catalog:</label>
+        <CakeCatalogsSelector
+          data={catalogs}
+          defaultValue={defaultCatalogValue}
+        />
       </div>
       <div className='flex flex-col gap-2'>
         <label htmlFor='size'>Size:</label>
-        <CakeSizeSelector data={sizes} />
+        <CakeSizeSelector data={sizes} defaultValue={defaultSizeValue} />
       </div>
       <div className='flex flex-col gap-2'>
         <label htmlFor='size'>Wheight:</label>
-        <CakeWheightsSelector data={wheights} />
+        <CakeWheightsSelector
+          data={wheights}
+          defaultValue={defaultWheightsValue}
+        />
       </div>
-      <div>
-        <SubmitButton type='submit'>Add</SubmitButton>
+      <div className='flex gap-5'>
+        <SubmitButton type='submit'>{data ? "Edit" : "Add"}</SubmitButton>
+        <Button
+          variant={"outline"}
+          onClick={() => {
+            router.back();
+          }}
+        >
+          Back
+        </Button>
       </div>
     </form>
   );

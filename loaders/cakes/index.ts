@@ -1,4 +1,4 @@
-import { Catalog } from "@/db-types";
+import { CakesEntity, Catalog, CatalogsEntity } from "@/db-types";
 
 export async function getCakesByCatalogId(
   id: string,
@@ -19,8 +19,21 @@ export async function getCakesByCatalogId(
 
   console.log("params", params.toString());
   const cakes = await fetch(
-    `${process.env.API_BASE_PATH}/cakes?${params.toString()}`
+    `${process.env.API_BASE_PATH}/cakes?${params.toString()}`,
+    {
+      next: {
+        tags: ["cakes-by-catalog-id"],
+      },
+    }
   );
 
   return cakes.json();
+}
+interface Cake extends CakesEntity {
+  catalog?: CatalogsEntity;
+}
+export async function getCakes(): Promise<Cake[]> {
+  const res = await fetch(`${process.env.API_BASE_PATH}/cakes?_embed=catalog`);
+
+  return res.json();
 }

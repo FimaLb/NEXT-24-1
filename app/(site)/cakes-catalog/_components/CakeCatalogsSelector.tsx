@@ -5,23 +5,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CakesCatalogsEntity } from "@/db-types";
+import { CatalogsEntity } from "@/db-types";
 
 interface CatalogsSelectProps {
-  data?: CakesCatalogsEntity[] | null;
+  data?: CatalogsEntity[] | null;
+  defaultValue?: string;
 }
 
 export const CakeCatalogsSelector: React.FunctionComponent<
   CatalogsSelectProps
-> = ({ data }) => {
+> = ({ data, defaultValue }) => {
   return (
-    <Select name='catalogId'>
+    <Select name='catalogId' defaultValue={defaultValue}>
       <SelectTrigger className='w-[180px]'>
         <SelectValue placeholder='Select option' />
       </SelectTrigger>
       <SelectContent>
         {data?.map(({ id, title }) => (
-          <SelectItem key={`sel-col-${id}`} value={title}>
+          <SelectItem key={`sel-col-${id}`} value={id}>
             {title}
           </SelectItem>
         ))}
