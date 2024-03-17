@@ -12,6 +12,7 @@ export async function getCakeByAlias(
   const res = await fetch(
     `${process.env.API_BASE_PATH}/cakes?${params.toString()}`
   );
+  console.log("getCakeByAlias", res);
   if (!res.ok) {
     return null;
   }

@@ -4,10 +4,15 @@ import { getWeightData } from "@/loaders/wheight";
 import { getSizeData } from "@/loaders/size";
 import addCake from "@/actions/addCake";
 
-export default async function AddCakePage() {
+export default async function AddCakePage({
+  params: { cakes },
+}: {
+  params: { cakes: string };
+}) {
   const catalogs = await getCakesCatalogs();
   const sizes = await getSizeData();
   const wheights = await getWeightData();
+  const selectedCatalog = catalogs?.find(({ alias }) => alias === cakes);
 
   return (
     <div className='flex flex-col p-20'>
@@ -16,6 +21,7 @@ export default async function AddCakePage() {
         catalogs={catalogs}
         sizes={sizes}
         wheights={wheights}
+        selectedCatalog={selectedCatalog}
       />
     </div>
   );
