@@ -11,14 +11,18 @@ export default async function addCake(
   state: AddCakeResult,
   formData: FormData
 ): Promise<AddCakeResult> {
-  const makeAlias = formData.get("catalogAlias");
+  const id = formData.get("id");
+  const catalogAlias = formData.get("catalogAlias");
+  const cakeAlias = `${id}_${formData.get("name")}`;
+  const src = `/categories/fruit_cakes.jpg`;
+
   const data = {
-    id: formData.get("id"),
+    id,
     title: formData.get("name"),
     alt: formData.get("name"),
-    description: `${makeAlias} ${formData.get("name")}`,
-    alias: formData.get("name"),
-    src: "/categories/fruit_cakes.jpg",
+    description: `${catalogAlias} ${formData.get("name")}`,
+    src,
+    alias: cakeAlias,
     catalogId: formData.get("catalogId"),
     sizeId: formData.get("sizeId"),
     wheightId: formData.get("wheightId"),
@@ -36,8 +40,8 @@ export default async function addCake(
         message: "Ops, something went wrong!",
       };
     }
-    console.log("makeAlias", makeAlias);
-    // revalidatePath(`/cakes-catalog/${makeAlias}`);
+    // console.log("catalogAlias", catalogAlias);
+    // revalidatePath(`/cakes-catalog/${catalogAlias}`);
     revalidateTag("cakes-by-catalog-id");
     return {
       status: true,

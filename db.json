@@ -29,13 +29,13 @@
     {
       "id": "1",
       "title": "Cake 1",
-      "alias": "cake_1",
       "alt": "Cake 1",
-      "description": "Chocolate cake 1",
-      "src": "/categories/chocolate_cakes.jpg",
+      "description": "chocolate Cake 1",
+      "src": "/categories/fruit_cakes.jpg",
+      "alias": "cake_1",
       "catalogId": "1",
       "sizeId": "1",
-      "wheightId": "1"
+      "wheightId": "2"
     },
     {
       "id": "2",
@@ -62,13 +62,13 @@
     {
       "id": "4",
       "title": "Cake 4",
-      "alias": "cake_4",
       "alt": "Cake 4",
-      "description": "Chocolate cake 4",
-      "src": "/categories/chocolate_cakes.jpg",
+      "description": "chocolate Cake 4",
+      "src": "/categories/fruit_cakes.jpg",
+      "alias": "cake_4",
       "catalogId": "1",
       "sizeId": "4",
-      "wheightId": "1"
+      "wheightId": "2"
     },
     {
       "id": "5",

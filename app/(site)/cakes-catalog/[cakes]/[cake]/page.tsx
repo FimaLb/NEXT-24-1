@@ -9,9 +9,9 @@ export async function generateStaticParams() {
   const cakes = await getCakes();
 
   return cakes?.length
-    ? cakes.map(({ id, catalog }) => ({
+    ? cakes.map(({ alias, catalog }) => ({
         cakes: catalog?.alias,
-        cake: id,
+        cake: alias,
       }))
     : [];
 }
@@ -21,8 +21,9 @@ export default async function CakePage({
 }: {
   params: { cake: string; cakes: string };
 }) {
+  console.log("param alias cake come", cake);
   const cakeItem = await getCakeByAlias(cake);
-  console.log("cakes", cakes);
+  console.log("param cake out", cakeItem);
   return (
     <PageWrapper>
       <CakeItem itemData={cakeItem} />
