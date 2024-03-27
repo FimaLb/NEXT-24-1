@@ -4,15 +4,13 @@ export async function getCakeByAlias(
   alias: string
 ): Promise<CakesEntity | null> {
   const params = new URLSearchParams();
-  params.set("alias", alias);
 
   if (!alias) {
     return null;
   }
-  const res = await fetch(
-    `${process.env.API_BASE_PATH}/cakes?${params.toString()}`
-  );
-  console.log("getCakeByAlias", res);
+
+  const res = await fetch(`${process.env.API_BASE_PATH}/cakes?alias=${alias}`);
+
   if (!res.ok) {
     return null;
   }

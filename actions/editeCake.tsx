@@ -11,15 +11,19 @@ export default async function editeCake(
   state: EditeCakeResult,
   formData: FormData
 ): Promise<EditeCakeResult> {
-  const makeAlias = formData.get("catalogAlias");
   const id = formData.get("id");
+  const catalogAlias = formData.get("catalogAlias");
+  const cakeAlias = formData.get("cakeAlias");
+  const src = `/categories/fruit_cakes.jpg`;
+
+  console.log("formData", formData);
   const data = {
     id,
     title: formData.get("name"),
     alt: formData.get("name"),
-    description: `${makeAlias} ${formData.get("name")}`,
-    src: "/categories/fruit_cakes.jpg",
-    alias: formData.get("name"),
+    description: `${catalogAlias} ${formData.get("name")}`,
+    src,
+    alias: cakeAlias,
     catalogId: formData.get("catalogId"),
     sizeId: formData.get("sizeId"),
     wheightId: formData.get("wheightId"),
@@ -37,8 +41,8 @@ export default async function editeCake(
         message: "Ops, something went wrong!",
       };
     }
-    console.log("makeAlias", makeAlias);
-    revalidatePath(`/cakes-catalog/${makeAlias}/${id}`);
+    // console.log("makeAlias", makeAlias);
+    revalidatePath(`/cakes-catalog/${catalogAlias}/${cakeAlias}`);
     revalidateTag("cakes-by-catalog-id");
     return {
       status: true,

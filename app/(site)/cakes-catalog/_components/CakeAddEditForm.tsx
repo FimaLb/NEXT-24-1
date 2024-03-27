@@ -65,9 +65,15 @@ export const CakeAddEditForm: React.FunctionComponent<CakeAddEditFormProps> = ({
       ) : null}
       <input type='hidden' value={data?.id || uuidv4()} name='id' />
       <input type='hidden' value={selectedCatalog?.alias} name='catalogAlias' />
+      <input type='hidden' value={data?.alias} name='cakeAlias' />
       <div className='flex flex-col gap-2'>
         <label htmlFor='name'>Name:</label>
-        <Input value={data?.title} id='name' name='name' required />
+        <Input
+          defaultValue={data?.title ? data.title : undefined}
+          id='name'
+          name='name'
+          required
+        />
       </div>
       <div className='flex flex-col gap-2'>
         <label htmlFor='size'>Catalog:</label>
