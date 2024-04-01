@@ -17,7 +17,7 @@ export default function CakesList({
   catalog,
 }: {
   list: Catalog["cakes"];
-  catalog: string;
+  catalog?: string;
 }) {
   const pathname = usePathname();
 
@@ -30,11 +30,13 @@ export default function CakesList({
       {list.map(({ id, title, alias, description, alt, src }) => (
         <Link key={id} href={`${pathname}/${alias}`}>
           <Card className='flex flex-col self-stretch h-[480px] relative'>
-            <CakeDeleteButton
-              id={id}
-              catalogAlias={catalog}
-              className='absolute top-0 right-0'
-            />
+            {catalog ? (
+              <CakeDeleteButton
+                id={id}
+                catalogAlias={catalog}
+                className='absolute top-0 right-0'
+              />
+            ) : null}
             <CardHeader>
               <CardTitle>{title}</CardTitle>
               {description ? (
