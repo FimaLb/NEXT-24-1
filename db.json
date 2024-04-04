@@ -128,5 +128,13 @@
       "id": "3",
       "value": "2 kg"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "User",
+      "email": "random@gmail.com",
+      "password": "123"
+    }
   ]
 }
